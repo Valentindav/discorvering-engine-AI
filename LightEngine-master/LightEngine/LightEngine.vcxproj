@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\Desktop\LightEngine-master\LightEngine-master\LightEngine\PlantState.cpp" />
     <ClCompile Include="BulletEntity.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="DummyEntity.cpp" />
@@ -33,6 +34,7 @@
     <ClCompile Include="ZombieEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Desktop\LightEngine-master\LightEngine-master\LightEngine\PlantState.h" />
     <ClInclude Include="BulletEntity.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="DummyEntity.h" />

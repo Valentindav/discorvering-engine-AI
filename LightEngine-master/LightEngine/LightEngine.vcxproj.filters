@@ -10,6 +10,9 @@
     <Filter Include="PvZ game">
       <UniqueIdentifier>{9f9c15b9-aee6-4f4b-b80a-9f23b7b3ad1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PvZ game\Game Entity">
+      <UniqueIdentifier>{fa5da404-97e9-42ab-96f3-bb27f02ddf74}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entity.cpp">
@@ -37,14 +40,17 @@
     <ClCompile Include="TDscene.cpp">
       <Filter>PvZ game</Filter>
     </ClCompile>
-    <ClCompile Include="ZombieEntity.cpp">
-      <Filter>PvZ game</Filter>
-    </ClCompile>
-    <ClCompile Include="PlantEntity.cpp">
+    <ClCompile Include="..\..\..\..\..\Desktop\LightEngine-master\LightEngine-master\LightEngine\PlantState.cpp">
       <Filter>PvZ game</Filter>
     </ClCompile>
     <ClCompile Include="BulletEntity.cpp">
-      <Filter>PvZ game</Filter>
+      <Filter>PvZ game\Game Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="PlantEntity.cpp">
+      <Filter>PvZ game\Game Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieEntity.cpp">
+      <Filter>PvZ game\Game Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -72,14 +78,17 @@
     <ClInclude Include="TDscene.h">
       <Filter>PvZ game</Filter>
     </ClInclude>
-    <ClInclude Include="ZombieEntity.h">
-      <Filter>PvZ game</Filter>
-    </ClInclude>
-    <ClInclude Include="PlantEntity.h">
+    <ClInclude Include="..\..\..\..\..\Desktop\LightEngine-master\LightEngine-master\LightEngine\PlantState.h">
       <Filter>PvZ game</Filter>
     </ClInclude>
     <ClInclude Include="BulletEntity.h">
-      <Filter>PvZ game</Filter>
+      <Filter>PvZ game\Game Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="PlantEntity.h">
+      <Filter>PvZ game\Game Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieEntity.h">
+      <Filter>PvZ game\Game Entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
