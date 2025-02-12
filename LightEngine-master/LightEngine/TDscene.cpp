@@ -10,16 +10,19 @@ void TDscene::OnInitialize()
 	mZomb1->SetPosition(1100, 260);
 	mZomb1->SetRigidBody(true);
 	mZomb1->SetTag(1);
+	mZombies.push_back(mZomb1);
 
 	mZomb2 = CreateEntity<ZombieEntity>(50, sf::Color::Green);
 	mZomb2->SetPosition(1100, 360);
 	mZomb2->SetRigidBody(true);
 	mZomb2->SetTag(1);
+	mZombies.push_back(mZomb2);
 
 	mZomb3 = CreateEntity<ZombieEntity>(50, sf::Color::Green);
 	mZomb3->SetPosition(1100, 460);
 	mZomb3->SetRigidBody(true);
 	mZomb3->SetTag(1);
+	mZombies.push_back(mZomb3);
 
 	mPlant1 = CreateEntity<PlantEntity>(50, sf::Color::Yellow);
 	mPlant1->SetPosition(60, 260);
@@ -124,4 +127,8 @@ void TDscene::OnUpdate()
 	debug->DrawRectangle(10, 210, 1250, 100, sf::Color::White);
 	debug->DrawRectangle(10, 311, 1250, 100, sf::Color::Magenta);
 	debug->DrawRectangle(10, 412, 1250, 100, sf::Color::White);
+}
+
+std::vector<ZombieEntity*> TDscene::GetZombies() {
+	return mZombies; 
 }

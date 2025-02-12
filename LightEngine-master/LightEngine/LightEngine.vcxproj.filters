@@ -40,9 +40,6 @@
     <ClCompile Include="TDscene.cpp">
       <Filter>PvZ game</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\LightEngine-master\LightEngine-master\LightEngine\PlantState.cpp">
-      <Filter>PvZ game</Filter>
-    </ClCompile>
     <ClCompile Include="BulletEntity.cpp">
       <Filter>PvZ game\Game Entity</Filter>
     </ClCompile>
@@ -51,6 +48,9 @@
     </ClCompile>
     <ClCompile Include="ZombieEntity.cpp">
       <Filter>PvZ game\Game Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="PlanteState.cpp">
+      <Filter>PvZ game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,9 +78,6 @@
     <ClInclude Include="TDscene.h">
       <Filter>PvZ game</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\LightEngine-master\LightEngine-master\LightEngine\PlantState.h">
-      <Filter>PvZ game</Filter>
-    </ClInclude>
     <ClInclude Include="BulletEntity.h">
       <Filter>PvZ game\Game Entity</Filter>
     </ClInclude>
@@ -89,6 +86,9 @@
     </ClInclude>
     <ClInclude Include="ZombieEntity.h">
       <Filter>PvZ game\Game Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="PlanteState.h">
+      <Filter>PvZ game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

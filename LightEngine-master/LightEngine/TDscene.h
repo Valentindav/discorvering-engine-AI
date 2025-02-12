@@ -14,9 +14,10 @@ class TDscene : public Scene
 	PlantEntity* mPlant2;
 	PlantEntity* mPlant3;
 
-		Debug* debug;
+	Debug* debug;
 
-		ZombieEntity* pEntitySelected;
+	ZombieEntity* pEntitySelected;
+	std::vector<ZombieEntity*> mZombies;   
 
 	private:
 		void TrySetSelectedEntity(ZombieEntity* pEntity, int x, int y);
@@ -25,6 +26,6 @@ class TDscene : public Scene
 		void OnInitialize() override;
 		void OnEvent(const sf::Event& event) override;
 		void OnUpdate() override;
-
+		std::vector<ZombieEntity*> GetZombies();
 };
 
