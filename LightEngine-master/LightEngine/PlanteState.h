@@ -11,6 +11,7 @@ public:
 };
 
 class ShootingState;
+class ReloadState;
 class IdleState : public PlanteState
 {
 public:
@@ -23,6 +24,9 @@ public:
 	{
 		if (plant->IsZombieInRange()) {
 			plant->SetState(new ShootingState());
+		}
+		else {
+			plant->SetState(new ReloadState());
 		}
 	}
 };
