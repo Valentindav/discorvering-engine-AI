@@ -34,10 +34,10 @@ void PlantEntity::Shoot() {
 void PlantEntity::ShootAdjacent(int side) {
     BulletEntity* bullet = CreateEntity<BulletEntity>(25, sf::Color::Red);
     if (side == 1) {
-        bullet->SetPosition(GetPosition().x + 100, GetPosition().y+100);
+        bullet->SetPosition(GetPosition().x + 100, GetPosition().y-100);
     }
     if (side == 2) {
-        bullet->SetPosition(GetPosition().x + 100, GetPosition().y-100);
+        bullet->SetPosition(GetPosition().x + 100, GetPosition().y+100);
     }
     bullet->SetTag(3);
     ammo -= 1;
