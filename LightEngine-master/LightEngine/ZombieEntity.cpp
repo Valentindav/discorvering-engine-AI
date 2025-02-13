@@ -3,7 +3,14 @@
 
 void ZombieEntity::OnCollision(Entity* other)
 {
-	if (other->IsTag(3)) Destroy();
+	TimeBeforeInvic -= GetDeltaTime();
+	if (TimeBeforeInvic <= 0.5f) {
+		life -= 1;
+		TimeBeforeInvic = 1;
+		if (life <= 0) {
+			if (other->IsTag(3)) Destroy();
+		}
+	}
 }
 
 void ZombieEntity::OnUpdate() {

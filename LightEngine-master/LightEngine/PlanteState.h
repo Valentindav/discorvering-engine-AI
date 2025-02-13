@@ -33,3 +33,19 @@ public:
 
 	void Update(PlantEntity* plant, float dt) override;
 };	
+
+class ShootingRightState : public PlanteState
+{
+public:
+	void Start(PlantEntity* plant) override;
+
+	void Update(PlantEntity* plant, float dt) override;
+};
+
+class ShootingLeftState : public PlanteState
+{
+public:
+	void Start(PlantEntity* plant) override;
+
+	void Update(PlantEntity* plant, float dt) override;
+};

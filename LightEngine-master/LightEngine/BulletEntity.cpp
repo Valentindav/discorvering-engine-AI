@@ -4,7 +4,14 @@
 
 void BulletEntity::OnCollision(Entity* other)
 {
-	if (!other->IsTag(mTag)) Destroy();
+	TimeBeforeInvic -= GetDeltaTime();
+	if (TimeBeforeInvic <= 0.5f) {
+		life -= 1;
+		TimeBeforeInvic = 1;
+		if (life <= 0) {
+			if (other->IsTag(1)) Destroy();
+		}
+	}
 }
 
 void BulletEntity::OnUpdate() {

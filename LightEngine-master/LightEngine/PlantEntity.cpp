@@ -31,6 +31,18 @@ void PlantEntity::Shoot() {
     ammo -= 1;
 }
 
+void PlantEntity::ShootAdjacent(int side) {
+    BulletEntity* bullet = CreateEntity<BulletEntity>(25, sf::Color::Red);
+    if (side == 1) {
+        bullet->SetPosition(GetPosition().x + 100, GetPosition().y+100);
+    }
+    if (side == 2) {
+        bullet->SetPosition(GetPosition().x + 100, GetPosition().y-100);
+    }
+    bullet->SetTag(3);
+    ammo -= 1;
+}
+
 bool PlantEntity::IsZombieInRange() {
     TDscene* tdScene = dynamic_cast<TDscene*>(GetScene());
     if (tdScene) {
@@ -44,6 +56,24 @@ bool PlantEntity::IsZombieInRange() {
         }
     }
     return false;
+}
+
+int PlantEntity::IsZombieInAdjacent() {
+    TDscene* tdScene = dynamic_cast<TDscene*>(GetScene());
+    if (tdScene) {
+        std::vector<ZombieEntity*> zombies = tdScene->GetZombies();
+        for (ZombieEntity* zombie : zombies) {
+            float distance = zombie->GetPosition().x - this->GetPosition().x;
+            if (distance <= mDetectionRange && zombie->GetPosition().y == this->GetPosition().y-100) {
+                return 1;
+            }
+            if (distance <= mDetectionRange && zombie->GetPosition().y == this->GetPosition().y+100) {
+                return 2;
+            }
+        }
+        return -1;
+    }
+    return -1;
 }
 
 int PlantEntity::GetAmmo() {

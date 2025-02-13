@@ -131,6 +131,27 @@ void TDscene::OnUpdate()
 	debug->DrawRectangle(10, 210, 1250, 100, sf::Color::White);
 	debug->DrawRectangle(10, 311, 1250, 100, sf::Color::Magenta);
 	debug->DrawRectangle(10, 412, 1250, 100, sf::Color::White);
+	/*------------------------------ "automatic" ----------------------------
+		int rando = rand() % 100;
+		if (rando == 1) {
+			ZombieEntity* zomb = CreateEntity<ZombieEntity>(50, sf::Color::Green);
+			zomb->SetPosition(1100, 260);
+			zomb->SetTag(1);
+			mZombies.push_back(zomb);
+		}
+		else if (rando == 2) {
+			ZombieEntity* zomb = CreateEntity<ZombieEntity>(50, sf::Color::Green);
+			zomb->SetPosition(1100, 360);
+			zomb->SetTag(1);
+			mZombies.push_back(zomb);
+		}
+		else if (rando == 3) {
+			ZombieEntity* zomb = CreateEntity<ZombieEntity>(50, sf::Color::Green);
+			zomb->SetPosition(1100, 460);
+			zomb->SetTag(1);
+			mZombies.push_back(zomb);
+		}
+		---------------------------------------------------------------------*/
 }
 
 std::vector<ZombieEntity*> TDscene::GetZombies() {

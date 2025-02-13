@@ -10,7 +10,7 @@ private:
 	float TimeBeforeShoot;
 	const float TimeToReload = 2;
 	float TimeBeforeReload;
-	const float mDetectionRange = 700.f;
+	const float mDetectionRange = 750.f;
 	PlanteState* mState;
 	int ammo = 5;
 public:
@@ -21,7 +21,9 @@ public:
 	void OnCollision(Entity* other) override;
 	void OnUpdate() override;
 	void Shoot();
+	void ShootAdjacent(int side);
 	bool IsZombieInRange();
+	int IsZombieInAdjacent();
 	void AddTimeBeforeShoot(float time);
 	float GetTimeToShoot();
 	float GetTimeBeforeShoot();
