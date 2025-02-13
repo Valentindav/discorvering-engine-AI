@@ -38,7 +38,7 @@ bool PlantEntity::IsZombieInRange() {
         std::vector<ZombieEntity*> zombies = tdScene->GetZombies();
 
         for (ZombieEntity* zombie : zombies) {
-            float distance = std::abs(zombie->GetPosition().x - this->GetPosition().x);
+            float distance = zombie->GetPosition().x - this->GetPosition().x;
             if (distance <= mDetectionRange && zombie->GetPosition().y == this->GetPosition().y) {
                 std::cout << "Zombie détecté par la plante !\n";
                 return true;
