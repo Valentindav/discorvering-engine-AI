@@ -26,21 +26,19 @@ void PlantEntity::OnUpdate() {
 
 void PlantEntity::Shoot() {
     BulletEntity* bullet = CreateEntity<BulletEntity>(25, sf::Color::Red);
-    bullet->SetPosition(GetPosition().x + 10, GetPosition().y);
+    bullet->SetPosition(GetPosition().x + 100, GetPosition().y);
     bullet->SetTag(3);
-    ammo--;
+    ammo -= 1;
 }
 
 bool PlantEntity::IsZombieInRange() {
     TDscene* tdScene = dynamic_cast<TDscene*>(GetScene());
-
     if (tdScene) {
         std::vector<ZombieEntity*> zombies = tdScene->GetZombies();
 
         for (ZombieEntity* zombie : zombies) {
             float distance = zombie->GetPosition().x - this->GetPosition().x;
             if (distance <= mDetectionRange && zombie->GetPosition().y == this->GetPosition().y) {
-                std::cout << "Zombie détecté par la plante !\n";
                 return true;
             }
         }
@@ -54,4 +52,28 @@ int PlantEntity::GetAmmo() {
 
 void PlantEntity::SetAmmo(int mun) {
     ammo = mun;
+}
+
+void PlantEntity::AddTimeBeforeShoot(float time) {
+    TimeBeforeShoot += time;
+}
+
+float PlantEntity::GetTimeToShoot() {
+    return TimeToShoot;
+}
+
+float PlantEntity::GetTimeBeforeShoot() {
+    return TimeBeforeShoot;
+}
+
+void PlantEntity::AddTimeBeforeReload(float time) {
+    TimeBeforeReload += time;
+}
+
+float PlantEntity::GetTimeToReload() {
+    return TimeToReload;
+}
+
+float PlantEntity::GetTimeBeforeReload() {
+    return TimeBeforeReload;
 }

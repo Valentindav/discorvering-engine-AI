@@ -27,5 +27,6 @@ class TDscene : public Scene
 		void OnEvent(const sf::Event& event) override;
 		void OnUpdate() override;
 		std::vector<ZombieEntity*> GetZombies();
+		int GetZombiesSize();
 };
 

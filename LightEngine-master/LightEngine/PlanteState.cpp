@@ -1,4 +1,5 @@
 #include "PlanteState.h"
+#include "TDscene.h"
 
 void IdleState::Start(PlantEntity* plant)
 {
@@ -8,9 +9,9 @@ void IdleState::Start(PlantEntity* plant)
 void IdleState::Update(PlantEntity* plant, float dt)
 {
 	if (plant->IsZombieInRange()) {
-		plant->SetState(new ShootingState());
+			plant->SetState(new ShootingState());
 	}
-	else {
+	else if (plant->GetAmmo() < 5){
 		plant->SetState(new ReloadState());
 	}
 }
@@ -22,8 +23,12 @@ void ReloadState::Start(PlantEntity* plant)
 
 void ReloadState::Update(PlantEntity* plant, float dt)
 {
-	plant->SetAmmo(5);
-	plant->SetState(new IdleState());
+	plant->AddTimeBeforeReload(dt);
+	if (plant->GetTimeBeforeReload() >= plant->GetTimeToReload()) {
+		plant->SetAmmo(5);
+		plant->AddTimeBeforeReload(-plant->GetTimeBeforeReload());
+		plant->SetState(new IdleState());
+	}
 }
 
 void ShootingState::Start(PlantEntity* plant)
@@ -33,11 +38,17 @@ void ShootingState::Start(PlantEntity* plant)
 
 void ShootingState::Update(PlantEntity* plant, float dt)
 {
-	std::cout << plant->GetAmmo();
-	if (plant->GetAmmo() > 0) {
-		plant->Shoot();
+	TDscene* tdScene = dynamic_cast<TDscene*>(plant->GetScene());
+
+	plant->AddTimeBeforeShoot(dt);
+	if (plant->GetAmmo() > 0 && plant->GetTimeBeforeShoot() >= plant->GetTimeToShoot()) { 
+			plant->Shoot();
+			plant->AddTimeBeforeShoot(-plant->GetTimeBeforeShoot());
 	}
-	else {
+	else if (plant->GetAmmo() <= 0){
 		plant->SetState(new ReloadState());
+	}
+	if (!plant->IsZombieInRange()) {
+		plant->SetState(new IdleState());
 	}
 }

@@ -54,6 +54,7 @@ void TDscene::OnEvent(const sf::Event& event)
 		ZombieEntity* zomb = CreateEntity<ZombieEntity>(50, sf::Color::Green);
 		zomb->SetPosition(event.mouseButton.x, event.mouseButton.y);
 		zomb->SetTag(1);
+		mZombies.push_back(zomb);
 	}
 	
 
@@ -75,18 +76,21 @@ void TDscene::OnEvent(const sf::Event& event)
 			ZombieEntity* zomb = CreateEntity<ZombieEntity>(50, sf::Color::Green);
 			zomb->SetPosition(1100, 260);
 			zomb->SetTag(1);
+			mZombies.push_back(zomb);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 		{
 			ZombieEntity* zomb = CreateEntity<ZombieEntity>(50, sf::Color::Green);
 			zomb->SetPosition(1100, 360);
 			zomb->SetTag(1);
+			mZombies.push_back(zomb);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 		{
 			ZombieEntity* zomb = CreateEntity<ZombieEntity>(50, sf::Color::Green);
 			zomb->SetPosition(1100, 460);
 			zomb->SetTag(1);
+			mZombies.push_back(zomb);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
 		{
@@ -131,4 +135,9 @@ void TDscene::OnUpdate()
 
 std::vector<ZombieEntity*> TDscene::GetZombies() {
 	return mZombies; 
+}
+
+int TDscene::GetZombiesSize() {
+	int Size = mZombies.size();
+	return Size;
 }
