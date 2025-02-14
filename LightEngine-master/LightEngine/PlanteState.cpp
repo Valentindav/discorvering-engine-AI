@@ -9,7 +9,6 @@ void IdleState::Start(PlantEntity* plant)
 
 void IdleState::Update(PlantEntity* plant, float dt)
 {
-	TDscene* tdScene = dynamic_cast<TDscene*>(plant->GetScene());
 
 	if (plant->IsZombieInRange()|| plant->IsZombieInAdjacent() == 1 && !plant->IsZombieInRange() || plant->IsZombieInAdjacent() == 2 && !plant->IsZombieInRange()) {
 			plant->SetState(new ShootingState());
