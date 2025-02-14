@@ -24,7 +24,8 @@ void PlantEntity::SetState(PlanteState* newState) {
 
 void PlantEntity::OnUpdate() {
     mState->Update(this, GetDeltaTime());
-    Debug::DrawText(GetPosition().x, GetPosition().y, std::to_string(ammo), sf::Color::Black);
+    sf::Vector2f pos = GetPosition(0.5, 0.5);
+    Debug::DrawText(pos.x, pos.y, std::to_string(ammo), sf::Color::Black);
 }
 
 void PlantEntity::Shoot() {
