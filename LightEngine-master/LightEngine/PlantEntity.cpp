@@ -7,6 +7,7 @@
 
 PlantEntity::PlantEntity() {
     mState = new IdleState();
+    SetTag(2);
 }
 
 void PlantEntity::OnCollision(Entity* other)

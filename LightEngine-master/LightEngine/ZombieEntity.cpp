@@ -1,6 +1,10 @@
 #include "ZombieEntity.h"
 #include <iostream>
 
+ZombieEntity::ZombieEntity() {
+	SetTag(1);
+}
+
 void ZombieEntity::OnCollision(Entity* other)
 {
 	TimeBeforeInvic -= GetDeltaTime();

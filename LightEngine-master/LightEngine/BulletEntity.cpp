@@ -2,6 +2,10 @@
 #include "ZombieEntity.h"
 #include <iostream>
 
+BulletEntity::BulletEntity() {
+	SetTag(3);
+}
+
 void BulletEntity::OnCollision(Entity* other)
 {
 	TimeBeforeInvic -= GetDeltaTime();
