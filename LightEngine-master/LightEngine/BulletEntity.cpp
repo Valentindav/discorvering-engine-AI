@@ -19,10 +19,8 @@ void BulletEntity::OnCollision(Entity* other)
 }
 
 void BulletEntity::OnUpdate() {
-	if (GetPosition().x >= 100) {
-		GoToPosition(1000, GetPosition().y, 200); // 60 = perfect
-		if (GetPosition().x == 1000){
+		SetDirection(+1, 0, 200); // 60 = perfect
+		if (GetPosition().x >= 1250){
 			Destroy();
 		}
-	}
 }

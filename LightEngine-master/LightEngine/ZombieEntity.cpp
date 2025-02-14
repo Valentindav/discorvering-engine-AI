@@ -18,5 +18,8 @@ void ZombieEntity::OnCollision(Entity* other)
 }
 
 void ZombieEntity::OnUpdate() {
-		GoToPosition(60, GetPosition().y, 200); // 60 = perfect
+		SetDirection(-1, 0, 200); // 60 = perfect
+		if (GetPosition().x <= 60) {
+			GoToPosition(60, GetPosition().y, 200);
+		}
 }

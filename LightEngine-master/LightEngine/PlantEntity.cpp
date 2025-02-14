@@ -3,6 +3,7 @@
 #include "ZombieEntity.h"
 #include "TDscene.h"
 #include "PlanteState.h"
+#include "debug.h"
 #include <iostream>
 
 PlantEntity::PlantEntity() {
@@ -23,11 +24,12 @@ void PlantEntity::SetState(PlanteState* newState) {
 
 void PlantEntity::OnUpdate() {
     mState->Update(this, GetDeltaTime());
+    Debug::DrawText(GetPosition().x, GetPosition().y, std::to_string(ammo), sf::Color::Black);
 }
 
 void PlantEntity::Shoot() {
     BulletEntity* bullet = CreateEntity<BulletEntity>(25, sf::Color::Red);
-    bullet->SetPosition(GetPosition().x + 100, GetPosition().y);
+    bullet->SetPosition(GetPosition().x, GetPosition().y);
     bullet->SetTag(3);
     ammo -= 1;
 }
@@ -35,10 +37,10 @@ void PlantEntity::Shoot() {
 void PlantEntity::ShootAdjacent(int side) {
     BulletEntity* bullet = CreateEntity<BulletEntity>(25, sf::Color::Red);
     if (side == 1) {
-        bullet->SetPosition(GetPosition().x + 100, GetPosition().y-100);
+        bullet->SetPosition(GetPosition().x, GetPosition().y-100);
     }
     if (side == 2) {
-        bullet->SetPosition(GetPosition().x + 100, GetPosition().y+100);
+        bullet->SetPosition(GetPosition().x, GetPosition().y+100);
     }
     bullet->SetTag(3);
     ammo -= 1;

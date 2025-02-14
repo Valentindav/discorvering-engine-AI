@@ -6,15 +6,15 @@
 
 void TDscene::OnInitialize()
 {
-	mZomb1 = CreateEntity<ZombieEntity>(50, sf::Color::Green);
+	ZombieEntity* mZomb1 = CreateEntity<ZombieEntity>(50, sf::Color::Green);
 	mZomb1->SetPosition(1100, 260);
 	mZombies.push_back(mZomb1);
 
-	mZomb2 = CreateEntity<ZombieEntity>(50, sf::Color::Green);
+	ZombieEntity* mZomb2 = CreateEntity<ZombieEntity>(50, sf::Color::Green);
 	mZomb2->SetPosition(1100, 360);
 	mZombies.push_back(mZomb2);
 
-	mZomb3 = CreateEntity<ZombieEntity>(50, sf::Color::Green);
+	ZombieEntity* mZomb3 = CreateEntity<ZombieEntity>(50, sf::Color::Green);
 	mZomb3->SetPosition(1100, 460);
 	mZombies.push_back(mZomb3);
 
@@ -24,8 +24,8 @@ void TDscene::OnInitialize()
 	mPlant2 = CreateEntity<PlantEntity>(50, sf::Color::Yellow);
 	mPlant2->SetPosition(60, 360);
 
-	mPlant2 = CreateEntity<PlantEntity>(50, sf::Color::Yellow);
-	mPlant2->SetPosition(60, 460);
+	mPlant3 = CreateEntity<PlantEntity>(50, sf::Color::Yellow);
+	mPlant3->SetPosition(60, 460);
 
 	pEntitySelected = nullptr;
 }
@@ -35,9 +35,9 @@ void TDscene::OnEvent(const sf::Event& event)
 
 	if (event.mouseButton.button == sf::Mouse::Button::Right)
 	{
-		TrySetSelectedEntity(mZomb1, event.mouseButton.x, event.mouseButton.y);
-		TrySetSelectedEntity(mZomb2, event.mouseButton.x, event.mouseButton.y);
-		TrySetSelectedEntity(mZomb3, event.mouseButton.x, event.mouseButton.y);
+		TrySetSelectedEntity(mPlant1, event.mouseButton.x, event.mouseButton.y);
+		TrySetSelectedEntity(mPlant2, event.mouseButton.x, event.mouseButton.y);
+		TrySetSelectedEntity(mPlant3, event.mouseButton.x, event.mouseButton.y);
 
 		ZombieEntity* zomb = CreateEntity<ZombieEntity>(50, sf::Color::Green);
 		zomb->SetPosition(event.mouseButton.x, event.mouseButton.y);
@@ -93,7 +93,7 @@ void TDscene::OnEvent(const sf::Event& event)
 	}
 }
 
-void TDscene::TrySetSelectedEntity(ZombieEntity* pEntity, int x, int y)
+void TDscene::TrySetSelectedEntity(Entity* pEntity, int x, int y)
 {
 	if (pEntity->IsInside(x, y) == false)
 		return;
@@ -111,7 +111,7 @@ void TDscene::OnUpdate()
 	debug->DrawRectangle(10, 210, 1250, 100, sf::Color::White);
 	debug->DrawRectangle(10, 311, 1250, 100, sf::Color::Magenta);
 	debug->DrawRectangle(10, 412, 1250, 100, sf::Color::White);
-//	------------------------------ "automatic" ----------------------------
+/*//	------------------------------ "automatic" ----------------------------
 		int rando = rand() % 150;
 		if (rando == 1) {
 			ZombieEntity* zomb = CreateEntity<ZombieEntity>(50, sf::Color::Green);
@@ -128,7 +128,7 @@ void TDscene::OnUpdate()
 			zomb->SetPosition(1100, 460);
 			mZombies.push_back(zomb);
 		}
-	//	---------------------------------------------------------------------
+	//	---------------------------------------------------------------------*/
 }
 
 std::vector<ZombieEntity*> TDscene::GetZombies() {

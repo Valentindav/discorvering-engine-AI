@@ -8,9 +8,9 @@ class PlantEntity : public Entity
 private:
 	const float TimeToShoot = 1;
 	float TimeBeforeShoot;
-	const float TimeToReload = 2;
+	const float TimeToReload = 1.5;
 	float TimeBeforeReload;
-	const float mDetectionRange = 750.f;
+	const float mDetectionRange = 850.f;
 	PlanteState* mState;
 	int ammo = 5;
 public:
